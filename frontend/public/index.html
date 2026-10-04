@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kubernetes Full Stack App</title>
+</head>
+<body>
+
+    <h1>Flask + Express Kubernetes Application</h1>
+
+    <button onclick="getData()">Get Backend Data</button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function getData() {
+            try {
+                const response = await fetch("/api");
+                const data = await response.json();
+
+                document.getElementById("result").textContent =
+                    JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById("result").textContent =
+                    "Error connecting to backend";
+            }
+        }
+    </script>
+
+</body>
+</html>
